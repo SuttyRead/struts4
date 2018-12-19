@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="hibernate.cfg.xml/Hibernate">
+  <database-model serializer="dbm" dbms="H2" family-id="H2" format-version="4.14">
+    <root id="1">
+      <ServerVersion>1.4.196</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="TEST15">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="INFORMATION_SCHEMA"/>
+    <schema id="4" parent="2" name="PUBLIC">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <table id="5" parent="4" name="ROLE"/>
+    <table id="6" parent="4" name="USER"/>
+    <column id="7" parent="5" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_8A8A312C_FE8A_41C4_98AC_E2221C6ACCEC)</DefaultExpression>
+    </column>
+    <column id="8" parent="5" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <index id="9" parent="5" name="PRIMARY_KEY_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="10" parent="5" name="CONSTRAINT_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="11" parent="6" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_8463832C_0689_48ED_A2A7_01EBD78D0126)</DefaultExpression>
+    </column>
+    <column id="12" parent="6" name="BIRTHDAY">
+      <Position>2</Position>
+      <DataType>DATE(8)|91s</DataType>
+    </column>
+    <column id="13" parent="6" name="EMAIL">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="14" parent="6" name="FIRST_NAME">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="15" parent="6" name="LAST_NAME">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="16" parent="6" name="LOGIN">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="17" parent="6" name="PASSWORD">
+      <Position>7</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="18" parent="6" name="ROLE_ID">
+      <Position>8</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+    </column>
+    <index id="19" parent="6" name="PRIMARY_KEY_27">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="20" parent="6" name="FKN82HA3CCDEBHOKX3A8FGDQEYY_INDEX_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ROLE_ID</ColNames>
+    </index>
+    <key id="21" parent="6" name="CONSTRAINT_27">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="22" parent="6" name="FKN82HA3CCDEBHOKX3A8FGDQEYY">
+      <ColNames>ROLE_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>ROLE</RefTableName>
+      <RefKeyName>CONSTRAINT_2</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

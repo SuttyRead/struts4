@@ -1,0 +1,21 @@
+INSERT INTO role (name) VALUES ('ADMIN');
+INSERT INTO role (name) VALUES ('USER');
+
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('admin', 'admin', 'admin@gmail.com', 'Admin', 'Admin', '2006-12-08', 1);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead1', 'SuttyRead1', 'SuttyRead1@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead2', 'SuttyRead2', 'SuttyRead2@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead3', 'SuttyRead3', 'SuttyRead3@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead4', 'SuttyRead4', 'SuttyRead4@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead5', 'SuttyRead5', 'SuttyRead5@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead6', 'SuttyRead6', 'SuttyRead6@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead7', 'SuttyRead7', 'SuttyRead7@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead8', 'SuttyRead8', 'SuttyRead8@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead9', 'SuttyRead9', 'SuttyRead9@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead10', 'SuttyRead10', 'SuttyRead10@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead11', 'SuttyRead11', 'SuttyRead11@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead12', 'SuttyRead12', 'SuttyRead12@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead13', 'SuttyRead13', 'SuttyRead13@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead14', 'SuttyRead14', 'SuttyRead14@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead15', 'SuttyRead15', 'SuttyRead15@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead16', 'SuttyRead16', 'SuttyRead16@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
+INSERT INTO user (login, password, email, first_name, last_name, birthday, role_id) VALUES ('SuttyRead17', 'SuttyRead`7', 'SuttyRead17@gmail.com', 'Sutty', 'Read', '1993-12-16', 2);
