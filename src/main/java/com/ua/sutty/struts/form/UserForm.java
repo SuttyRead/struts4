@@ -6,8 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -29,7 +31,9 @@ public class UserForm {
 
     private String lastName;
 
-    private String birthday;
+//    private String birthday;
+
+    private Date birthday;
 
     private String roleName;
 
@@ -41,7 +45,7 @@ public class UserForm {
                 .email(email)
                 .firstName(firstName)
                 .lastName(lastName)
-                .birthday(Date.valueOf(birthday))
+                .birthday(birthday)
                 .role(role)
                 .build();
     }

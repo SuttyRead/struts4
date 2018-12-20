@@ -12,5 +12,8 @@
             <!--<result>WEB-INF/jsp/index.jsp</result>-->
         <!--</actionView>-->
     <!--</package>-->
+    <!--<constant name="struts.enable.SlashesInActionNames" value="true" />-->
+    <!--<constant name="struts.mapper.alwaysSelectFullNamespace" value="false" />-->
+    <!--<constant name="struts.patternMatcher" value="regex" />-->
 
 </struts>

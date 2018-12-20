@@ -1,6 +1,7 @@
 package com.ua.sutty.struts.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.ua.sutty.struts.domain.User;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -24,6 +25,10 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 
     @Override
     public String execute() throws Exception {
+        User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
+        if (loggedInUser == null){
+            return ERROR;
+        }
         request.getSession().invalidate();
         return SUCCESS;
     }
@@ -31,7 +36,6 @@ public class LogoutAction extends ActionSupport implements SessionAware {
     @Override
     public void setSession(Map<String, Object> map) {
         sessionMap = (SessionMap<String, Object>) map;
-        sessionMap.put("login", "true");
     }
 
     public SessionMap<String, Object> getSessionMap() {
