@@ -19,31 +19,18 @@ import java.util.Map;
         @Result(name = "success", type = "redirect", location = "/login?logout"),
         @Result(name = "error", type = "redirect", location = "/login?error")
 })
-public class LogoutAction extends ActionSupport implements SessionAware {
+public class LogoutAction extends ActionSupport {
     private HttpServletRequest request = ServletActionContext.getRequest();
-    private SessionMap<String, Object> sessionMap;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() {
         User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
-        if (loggedInUser == null){
+        if (loggedInUser == null) {
             return ERROR;
         }
         request.getSession().invalidate();
         return SUCCESS;
     }
 
-    @Override
-    public void setSession(Map<String, Object> map) {
-        sessionMap = (SessionMap<String, Object>) map;
-    }
-
-    public SessionMap<String, Object> getSessionMap() {
-        return sessionMap;
-    }
-
-    public void setSessionMap(SessionMap<String, Object> sessionMap) {
-        this.sessionMap = sessionMap;
-    }
 
 }

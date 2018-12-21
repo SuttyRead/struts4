@@ -41,7 +41,7 @@ public class UserTag implements Tag {
     }
 
     @Override
-    public int doEndTag() throws JspException {
+    public int doEndTag() {
         return EVAL_PAGE;
     }
 
@@ -50,7 +50,7 @@ public class UserTag implements Tag {
 
     }
 
-    public int doStartTag() throws JspException {
+    public int doStartTag() {
         int count = 1;
         StringBuilder sb = new StringBuilder();
         JspWriter out = pageContext.getOut();

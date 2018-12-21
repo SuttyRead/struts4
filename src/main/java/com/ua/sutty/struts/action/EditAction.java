@@ -20,12 +20,13 @@ import javax.servlet.http.HttpServletRequest;
         @Result(name = "accessDenied", location = "/WEB-INF/jsp/403.jsp"),
         @Result(name = "error", type = "redirect", location = "/login")
 })
-@Getter
-@Setter
+
 public class EditAction extends ActionSupport {
 
     private HttpServletRequest request = ServletActionContext.getRequest();
 
+    @Getter
+    @Setter
     private User user;
 
     @Validations(regexFields = {
@@ -34,12 +35,12 @@ public class EditAction extends ActionSupport {
             @RegexFieldValidator(regex = "^[A-Z]{1}[a-z]{1,25}", message = "First name not pattern", fieldName = "user.firstName"),
             @RegexFieldValidator(regex = "^[A-Z]{1}[a-z]{1,25}", message = "Last name not pattern", fieldName = "user.lastName")
     }, dateRangeFields = {
-            @DateRangeFieldValidator(max = "12/20/2018", message = "Invalid Date Range", fieldName = "user.birthday")
+            @DateRangeFieldValidator(max = "12/20/2018", message = "Enter correct birthday", fieldName = "user.birthday")
     }, emails = {
             @EmailValidator(message = "Email not pattern", fieldName = "user.email")
     })
     @Override
-    public String execute() throws Exception {
+    public String execute() {
         User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
         HibernateUserService hibernateUserService = new HibernateUserService();
         if (loggedInUser == null) {
@@ -66,12 +67,13 @@ public class EditAction extends ActionSupport {
         }
     }
 
-    public HttpServletRequest getRequest() {
-        return request;
-    }
-
-    public void setRequest(HttpServletRequest request) {
-        this.request = request;
+    @Override
+    public void validate() {
+        if (request.getMethod().equals("POST")) {
+            if (!user.getPassword().equals(user.getConfirmPassword())) {
+                addFieldError("user.confirmPassword", "Password don't match");
+            }
+        }
     }
 
 }

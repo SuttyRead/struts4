@@ -22,7 +22,7 @@ import java.util.Map;
         @Result(name = "user", location = "/WEB-INF/jsp/user-home.jsp"),
         @Result(name = "error", type = "redirect", location = "/login")
 })
-public class HomeAction extends ActionSupport{
+public class HomeAction extends ActionSupport {
 
     private HttpServletRequest request = ServletActionContext.getRequest();
 
@@ -31,7 +31,7 @@ public class HomeAction extends ActionSupport{
     private User user;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() {
         if (request.getSession().getAttribute("loggedInUser") != null) {
 
             if (request.getParameter("successfullyDeleted") != null) {
@@ -65,7 +65,6 @@ public class HomeAction extends ActionSupport{
             return ERROR;
         }
     }
-
 
 
 }

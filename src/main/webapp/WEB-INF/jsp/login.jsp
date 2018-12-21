@@ -16,6 +16,14 @@
     </div>
 </s:if>
 
+<div class="col-sm-offset-3 col-sm-6 err-message">
+    <c:if test="${successfullyRegistration != null}">
+        <div class="alert alert-success" role="alert">
+            User was successfully registered!
+        </div>
+    </c:if>
+</div>
+
 <s:form action="/login">
     <s:textfield name="user.login" id="exampleInputLogin" class="form-control" placeholder="Enter login" label="Name"
                  required="true"/>

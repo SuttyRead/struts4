@@ -19,20 +19,20 @@ import javax.servlet.http.HttpServletRequest;
         @Result(name = "accessDenied", location = "/WEB-INF/jsp/403.jsp"),
         @Result(name = "error", type = "redirect", location = "/login")
 })
-@Getter
-@Setter
 public class DeleteAction extends ActionSupport {
 
     private HttpServletRequest request = ServletActionContext.getRequest();
+
+    @Getter
+    @Setter
     private User user;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() {
 
         HibernateUserService hibernateUserService = new HibernateUserService();
         User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
         if (loggedInUser == null) {
-            addActionError("Must be sign in");
             return ERROR;
         }
         if (loggedInUser.getRole().getName().equals("ADMIN")) {

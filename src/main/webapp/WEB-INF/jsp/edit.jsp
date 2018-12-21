@@ -20,7 +20,7 @@
                  value="%{user.login}" readonly="true"/>
 
 
-    <s:textfield name="u   .password" class="form-control" label="Password" placeholder="Enter password"
+    <s:textfield name="user.password" class="form-control" label="Password" placeholder="Enter password"
                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                  type="password" required="true" value="%{user.password}"/>
 
