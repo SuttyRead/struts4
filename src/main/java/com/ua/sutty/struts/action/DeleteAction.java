@@ -14,18 +14,21 @@ import javax.servlet.http.HttpServletRequest;
 
 @Namespace(value = "/")
 @Action(value = "/delete", results = {
-        @Result(name = "success", type = "redirect", location = "/home"),
+        @Result(name = "success", type = "redirect", location = "/home?successfullyDeleted"),
+        @Result(name = "deleteYourSelf", type = "redirect", location = "/home?errorDeleting"),
         @Result(name = "accessDenied", location = "/WEB-INF/jsp/403.jsp"),
-        @Result(name = "error", type = "redirect", location = "/home")
+        @Result(name = "error", type = "redirect", location = "/login")
 })
 @Getter
 @Setter
 public class DeleteAction extends ActionSupport {
+
     private HttpServletRequest request = ServletActionContext.getRequest();
     private User user;
 
     @Override
     public String execute() throws Exception {
+
         HibernateUserService hibernateUserService = new HibernateUserService();
         User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
         if (loggedInUser == null) {
@@ -39,6 +42,9 @@ public class DeleteAction extends ActionSupport {
             }
             User byId = hibernateUserService.findById(Long.valueOf(userId));
             if (byId != null) {
+                if (byId.equals(request.getSession().getAttribute("loggedInUser"))) {
+                    return "deleteYourSelf";
+                }
                 hibernateUserService.remove(byId);
                 return SUCCESS;
             }

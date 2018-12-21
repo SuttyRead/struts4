@@ -32,9 +32,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
         if (request.getMethod().equals("POST")) {
             HibernateUserService hibernateUserService = new HibernateUserService();
             User userInBase = hibernateUserService.findByLogin(user.getLogin());
-            System.out.println(user);
             if (userInBase != null && user.getPassword().equals(userInBase.getPassword())) {
-                System.out.println("UserInBase = " + userInBase);
                 request.getSession().setAttribute("loggedInUser", userInBase);
                 return SUCCESS;
             } else {

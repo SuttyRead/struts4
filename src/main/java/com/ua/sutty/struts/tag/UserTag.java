@@ -9,6 +9,7 @@ import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.Tag;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
@@ -66,7 +67,7 @@ public class UserTag implements Tag {
                 sb.append("<tr>").append("<th>").append(count++).append("</th>").append("\n<td>").append(user.getLogin())
                         .append("</td>\n<td>").append(user.getFirstName())
                         .append("</td>\n<td>").append(user.getLastName())
-                        .append("</td>\n<td>").append(ChronoUnit.YEARS.between(user.getBirthday().toLocalDate(), LocalDate.now())).append("</td>\n<td>")
+                        .append("</td>\n<td>").append(ChronoUnit.YEARS.between(user.getBirthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), LocalDate.now())).append("</td>\n<td>")
                         .append(user.getRole().getName().equals("ADMIN") ? "Admin" : "User")
                         .append("</td>\n<td>")
                         .append("<a href=\"/edit?userId=").append(user.getId()).append("\"")

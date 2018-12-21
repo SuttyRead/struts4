@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="usersTag" prefix="myTags" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
     <title>Title</title>
@@ -37,6 +38,18 @@ Hello, admin
         </div>
     </c:if>
 </div>
+
+<s:if test="hasActionErrors()">
+    <div class="errorDiv">
+        <s:actionerror/>
+    </div>
+</s:if>
+
+<s:if test="hasActionMessages()">
+    <div class="errorDiv">
+        <s:actionmessage/>
+    </div>
+</s:if>
 
 <myTags:printTable userList="${users}"/>
 
