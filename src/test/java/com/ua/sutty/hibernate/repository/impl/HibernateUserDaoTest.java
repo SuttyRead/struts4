@@ -12,8 +12,6 @@ import org.hibernate.cfg.Configuration;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.Date;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -75,8 +73,6 @@ public class HibernateUserDaoTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testRemoveWhereIdNull() {
-//        User user = new User(null, "login", "password", "email", "firstname",
-//                "lastname", new Date(System.currentTimeMillis()), new Role(1L, "USER"));
         User user = User.builder()
                 .id(null)
                 .login("login")
@@ -84,7 +80,7 @@ public class HibernateUserDaoTest {
                 .email("email")
                 .firstName("firstname")
                 .lastName("lastname")
-                .birthday(new java.util.Date(System.currentTimeMillis()))
+                .birthday(new java.util.Date())
                 .role(new Role(1L, "USER"))
                 .build();
         hibernateUserDao.remove(user);
@@ -92,9 +88,6 @@ public class HibernateUserDaoTest {
 
     @Test
     public void testCreate() throws Exception {
-//        User user = new User(4L, "fourthUser", "123",
-//                "fourthUser@gmail.com", "fourth", "user",
-//                new Date(System.currentTimeMillis()), new Role(3L, "MANAGER"));
         User user = User.builder()
                 .id(4L)
                 .login("fourthUser")
@@ -102,7 +95,7 @@ public class HibernateUserDaoTest {
                 .email("fourthUser@gmail.com")
                 .firstName("fourth")
                 .lastName("user")
-                .birthday(new java.util.Date(System.currentTimeMillis()))
+                .birthday(new java.util.Date())
                 .role(new Role(3L, "MANAGER"))
                 .build();
         hibernateUserDao.create(user);
@@ -118,9 +111,6 @@ public class HibernateUserDaoTest {
 
     @Test
     public void testUpdate() throws Exception {
-//        User user = new User(3L, "thirdUser", "123", "thirdUser@gmail.com",
-//                "Third", "User",
-//                new Date(System.currentTimeMillis()), new Role(3L, "MANAGER"));
         User user = User.builder()
                 .id(3L)
                 .login("thirdUser")
@@ -128,7 +118,7 @@ public class HibernateUserDaoTest {
                 .email("thirdUser@gmail.com")
                 .firstName("Third")
                 .lastName("User")
-                .birthday(new java.util.Date(System.currentTimeMillis()))
+                .birthday(new java.util.Date())
                 .role(new Role(3L, "MANAGER"))
                 .build();
         hibernateUserDao.update(user);
@@ -142,9 +132,6 @@ public class HibernateUserDaoTest {
 
     @Test
     public void testRemove() throws Exception {
-//        User user = new User(2L, "secondUser", "123", "secondUser@gmail.com",
-//                "second", "user",
-//                new Date(System.currentTimeMillis()), new Role(2L, "ADMIN"));
         User user = User.builder()
                 .id(2L)
                 .login("secondUser")
@@ -152,7 +139,7 @@ public class HibernateUserDaoTest {
                 .email("secondUser@gmail.com")
                 .firstName("second")
                 .lastName("user")
-                .birthday(new java.util.Date(System.currentTimeMillis()))
+                .birthday(new java.util.Date())
                 .role(new Role(2L, "ADMIN"))
                 .build();
         hibernateUserDao.remove(user);
